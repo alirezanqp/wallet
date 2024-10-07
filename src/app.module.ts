@@ -6,6 +6,7 @@ import { ContextInterceptor } from './libs/application/context/context.intercept
 import { NestjsEventEmitterModule } from './libs/application/event-publisher/nest-event-emitter.publisher.module';
 import { AllExceptionsFilter } from './libs/application/exception-filters/filters';
 import { ExceptionInterceptor } from './libs/application/interceptors/exception.interceptor';
+import { WalletModule } from './modules/wallet/wallet.module';
 
 const interceptors: Provider[] = [
   {
@@ -32,7 +33,7 @@ const filters: Provider[] = [
     CqrsModule,
 
     // Business Domain Modules
-    
+    WalletModule
   ],
   providers: [...interceptors, ...filters],
 })
