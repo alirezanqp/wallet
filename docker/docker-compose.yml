@@ -1,0 +1,22 @@
+version: '3.9'
+
+services:
+    wallet-service:
+      container_name: wallet-service
+      image: wallet-service
+      build:
+        context: .
+        dockerfile: Dockerfile
+      ports:
+        - 3000:3000
+      networks:
+        - backend
+      volumes:
+        - ./:/app
+        - ./node_modules/:/app/node_modules
+      restart: unless-stopped
+
+
+networks:
+    backend:
+        driver: bridge
